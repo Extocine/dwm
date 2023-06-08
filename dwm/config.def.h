@@ -34,14 +34,10 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "discord",     NULL,       NULL,       1 << 2,             0,       -1 },
 	{ "Google-chrome",  NULL,    NULL,       1 << 1,             0,       -1 },
-	{ "Google Chrome", NULL, NULL,		 1 << 1,		0,	 -1 },
 	{ "Thunar",	NULL,	NULL,		 1 << 4,		0,	 -1 },
+	{ "Nautilus",	NULL,	NULL,		 1 << 4,		0,	 -1 },
 	{ "Steam", NULL,	NULL,		 1 << 3,		0,	 -1 },
 	{ "Spotify", "spotify",	"Spotify",	 1 << 5,		0,	 -1 },
-	{ "KeePassXC", NULL,	NULL,		 1 << 8,		0,	 -1 },
-	{ "Minecraft Launcher", NULL, NULL, 	 1 << 3,		0, 	 -1 },
-	{ "Veracrypt", NULL, 	NULL, 		 1 << 4,		0,	 -1 },
-	{ "Pavucontrol", NULL,	NULL,		 1 << 8,		0,	 -1 },
 };
 
 /* layout(s) */
