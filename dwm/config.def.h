@@ -16,7 +16,7 @@ static const char col_gray1[]       = "#222222"; /* The grey behind the Icons */
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb"; /*Icon Colors*/ /*bbbbbb*/
 static const char col_gray4[]       = "#222222"; /*Window Title Text Color*/
-static const char col_cyan[]        = "#5aecf9"; /*Purple 5a32a8*/
+static const char col_cyan[]        = "#5aecf9"; /*Main Bar Color*/
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -56,15 +56,6 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "[@]",      spiral },
 	{ "[\\]",     dwindle },
-	{ "H[]",      deck },
-	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
-	{ "HHH",      grid },
-	{ "###",      nrowgrid },
-	{ "---",      horizgrid },
-	{ ":::",      gaplessgrid },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
 	{ NULL,       NULL },
 };
 
