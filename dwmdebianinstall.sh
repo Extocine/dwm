@@ -1,5 +1,5 @@
 sudo apt update
-sudo apt install git make gcc libx11-dev libxft-dev libxinerama-dev xorg
+sudo apt install git make gcc libx11-dev libxft-dev libxinerama-dev xorg flameshot xfce4-appfinder
 cd dwm
 sudo make clean install
 
