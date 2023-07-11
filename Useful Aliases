@@ -1,0 +1,7 @@
+# Useful Aliases
+alias clock="tty-clock -bstcC 6"
+alias neofetch="neofetch --ascii_distro"
+alias matrix="cmatrix -bC cyan"
+alias wallpaper="feh --bg-scale"
+alias transparency="picom --experimental-backends -b"
+alias dwmtime='while true; do xsetroot -name "$(date)"; sleep 1; done &'
