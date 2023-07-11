@@ -1,5 +1,5 @@
 sudo apt update
-sudo apt install git make gcc libx11-dev libxft-dev libxinerama-dev xorg flameshot xfce4-appfinder
+sudo apt install make gcc libx11-dev libxft-dev libxinerama-dev xorg flameshot xfce4-appfinder tty-clock feh picom neofetch cmatrix
 cd dwm
 sudo make clean install
 
@@ -13,6 +13,7 @@ sudo make clean install
 
 cd .. && cd ..
 echo "exec dwm" >> ~/.xinitrc
+mv picom.conf /home/$USER/.config/picom/picom.conf
 
 clear
 echo "
