@@ -1,4 +1,5 @@
-# Useful Aliases
+Useful Aliases
+
 alias clock="tty-clock -bstcC 6"
 alias neofetch="neofetch --ascii_distro"
 alias matrix="cmatrix -bC cyan"
