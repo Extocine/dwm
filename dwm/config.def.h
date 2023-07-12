@@ -38,8 +38,8 @@ static const Rule rules[] = {
 	{ "Nautilus",	NULL,	NULL,		 1 << 4,		0,	 -1 },
 	{ "Steam", NULL,	NULL,		 1 << 3,		0,	 -1 },
 	{ "Spotify", "spotify",	"Spotify",	 1 << 5,		0,	 -1 },
-	{ "Pavucontrol", NULL,	NULL,		 1 << 9,		0,	 -1 },
-	{ "KeePassXC", NULL,	NULL,		 1 << 9,		0,	 -1 },
+	{ "Pavucontrol", NULL,	NULL,		 1 << 8,		0,	 -1 },
+	{ "KeePassXC", NULL,	NULL,		 1 << 8,		0,	 -1 },
 	{ "minecraft", NULL,	NULL,		 1 << 3,		0,	 -1 },
 };
 
@@ -77,8 +77,6 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *xfce4appfindercmd[] = { "xfce4-appfinder", NULL };
-static const char *screenshotcmd[] = {"flameshot", "gui", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -121,8 +119,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,			XK_Super_L, spawn,	   {.v = xfce4appfindercmd } },
-	{ MODKEY|ShiftMask, 		XK_p, 	   spawn, 	   {.v = screenshotcmd } },
+	{ MODKEY,			XK_Super_L, spawn,	  SHCMD("xfce4-appfinder") },
+	{ MODKEY|ShiftMask, 		XK_p, 	   spawn, 	  SHCMD("flameshot gui") },
+	{ MODKEY,                       XK_F5,     spawn,         SHCMD("setxkbmap us") },
+        { MODKEY,                       XK_F6,     spawn,         SHCMD("setxkbmap ru -variant phonetic") },
+        { ControlMask|ShiftMask,        XK_Escape, spawn,         SHCMD("gnome-system-monitor") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
