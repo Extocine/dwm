@@ -13,7 +13,7 @@ sudo make clean install
 
 cd .. && cd ..
 echo "exec dwm" >> ~/.xinitrc
-mv picom.conf /home/$USER/.config/picom/picom.conf
+mv picom.conf /home/$USER/.config/
 
 clear
 echo "
