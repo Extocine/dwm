@@ -51,6 +51,7 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 #define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
 #include "vanitygaps.c"
+#include <X11/XF86keysym.h>
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -72,6 +73,7 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define XF86XK_AudioRaiseVolume	0x1008FF13
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -124,6 +126,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F5,     spawn,         SHCMD("setxkbmap us") },
         { MODKEY,                       XK_F6,     spawn,         SHCMD("setxkbmap ru -variant phonetic") },
         { ControlMask|ShiftMask,        XK_Escape, spawn,         SHCMD("gnome-system-monitor") },
+        {MODKEY|ShiftMask|ControlMask,  XK_c,      spawn,         SHCMD("xkill") },
+        {MODKEY|ShiftMask|ControlMask,  XK_Return, spawn,         SHCMD("cool-retro-term -p ~/.config/cool-retro-term/custom.json") },
+        {Mod4Mask,                      XK_e,      spawn,         SHCMD("thunar") },
+        {0, XF86XK_AudioRaiseVolume,          spawn,         SHCMD("amixer set Master 5%+") },
+        {0, XF86XK_AudioMute,          spawn,         SHCMD("amixer set Master mute") },
+        {0, XF86XK_AudioLowerVolume,          spawn,         SHCMD("amixer set Master 5%-") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
