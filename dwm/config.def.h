@@ -36,11 +36,18 @@ static const Rule rules[] = {
 	{ "Google-chrome",  NULL,    NULL,       1 << 1,             0,       -1 },
 	{ "Thunar",	NULL,	NULL,		 1 << 4,		0,	 -1 },
 	{ "Nautilus",	NULL,	NULL,		 1 << 4,		0,	 -1 },
-	{ "Steam", NULL,	NULL,		 1 << 3,		0,	 -1 },
+	{ "steam", NULL,	NULL,		 1 << 3,		0,	 -1 },
 	{ "Spotify", "spotify",	"Spotify",	 1 << 5,		0,	 -1 },
 	{ "Pavucontrol", NULL,	NULL,		 1 << 8,		0,	 -1 },
 	{ "KeePassXC", NULL,	NULL,		 1 << 8,		0,	 -1 },
-	{ "minecraft", NULL,	NULL,		 1 << 3,		0,	 -1 },
+	{ "Minecraft Launcher", NULL,	NULL,	 1 << 3,		0,	 -1 },
+ 	{ "yuzu", NULL,    NULL,          	 1 << 3,                0,       -1 },
+	{ "Timeshift-gtk", NULL,    NULL,        1 << 7,                0,       -1 },
+        { "Timeshift-launcher", NULL,    NULL,   1 << 7,                0,       -1 },
+        { "dolphin-emu", NULL,    NULL,          1 << 3,                0,       -1 },
+
+
+
 };
 
 /* layout(s) */
@@ -160,3 +167,4 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+
