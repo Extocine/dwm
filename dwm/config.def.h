@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 5;       /* snap pixel */
 static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -16,7 +16,7 @@ static const char col_gray1[]       = "#222222"; /* The grey behind the Icons */
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb"; /*Icon Colors*/ /*bbbbbb*/
 static const char col_gray4[]       = "#222222"; /*Window Title Text Color*/
-static const char col_cyan[]        = "#5aecf9"; /*Main Bar Color*/
+static const char col_cyan[]        = "#46c8c0"; /*Main Color*/
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -33,8 +33,10 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "discord",     NULL,       NULL,       1 << 2,             0,       -1 },
+	{ "TelegramDesktop",     NULL,       NULL,       1 << 2,             0,       -1 },
 	{ "Google-chrome",  NULL,    NULL,       1 << 1,             0,       -1 },
-	{ "Thunar",	NULL,	NULL,		 1 << 4,		0,	 -1 },
+	{ "Google Chrome",  NULL,    NULL,       1 << 1,             0,       -1 },
+	{ "Nemo",	NULL,	NULL,		 1 << 4,		0,	 -1 },
 	{ "Nautilus",	NULL,	NULL,		 1 << 4,		0,	 -1 },
 	{ "steam", NULL,	NULL,		 1 << 3,		0,	 -1 },
 	{ "Spotify", "spotify",	"Spotify",	 1 << 5,		0,	 -1 },
@@ -105,14 +107,14 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_i,      incrigaps,      {.i = -1 } },
 	{ MODKEY,                       XK_o,      incrogaps,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_o,      incrogaps,      {.i = -1 } },
-	{ MODKEY,                       XK_6,      incrihgaps,     {.i = +1 } },
+/*	{ MODKEY,                       XK_6,      incrihgaps,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_6,      incrihgaps,     {.i = -1 } },
 	{ MODKEY,                       XK_7,      incrivgaps,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_7,      incrivgaps,     {.i = -1 } },
 	{ MODKEY,                       XK_8,      incrohgaps,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_8,      incrohgaps,     {.i = -1 } },
 	{ MODKEY,                       XK_9,      incrovgaps,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_9,      incrovgaps,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_9,      incrovgaps,     {.i = -1 } }, */
 	{ MODKEY|ShiftMask,  	        XK_0,      togglegaps,     {0} },
 	{ MODKEY,		        XK_0,      defaultgaps,    {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
@@ -128,17 +130,21 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,			XK_Super_L, spawn,	  SHCMD("xfce4-appfinder") },
+	{ MODKEY,			XK_Super_L, spawn,	  SHCMD("ulauncher") },
 	{ MODKEY|ShiftMask, 		XK_p, 	   spawn, 	  SHCMD("flameshot gui") },
+        { MODKEY|ShiftMask,             XK_m,      spawn,         SHCMD("killall Discord") },
 	{ MODKEY,                       XK_F5,     spawn,         SHCMD("setxkbmap us") },
         { MODKEY,                       XK_F6,     spawn,         SHCMD("setxkbmap ru -variant phonetic") },
         { ControlMask|ShiftMask,        XK_Escape, spawn,         SHCMD("gnome-system-monitor") },
         {MODKEY|ShiftMask|ControlMask,  XK_c,      spawn,         SHCMD("xkill") },
         {MODKEY|ShiftMask|ControlMask,  XK_Return, spawn,         SHCMD("cool-retro-term -p ~/.config/cool-retro-term/custom.json") },
-        {Mod4Mask,                      XK_e,      spawn,         SHCMD("thunar") },
-        {0, XF86XK_AudioRaiseVolume,          spawn,         SHCMD("amixer set Master 5%+") },
-        {0, XF86XK_AudioMute,          spawn,         SHCMD("amixer set Master mute") },
-        {0, XF86XK_AudioLowerVolume,          spawn,         SHCMD("amixer set Master 5%-") },
+        {Mod4Mask,                      XK_e,      spawn,         SHCMD("nemo") },
+        {Mod4Mask,                      XK_period, spawn,         SHCMD("gnome-characters") },
+	{0, XF86XK_AudioRaiseVolume,          	   spawn,         SHCMD("amixer set Master 5%+") },
+        {0, XF86XK_AudioMute,          		   spawn,         SHCMD("amixer set Master mute") },
+        {0, XF86XK_AudioLowerVolume,          	   spawn,         SHCMD("amixer set Master 5%-") },
+	{0, XF86XK_Calculator,          	   spawn,         SHCMD("gnome-calculator") },
+        {0, XF86XK_Explorer,                     spawn,         SHCMD("arandr") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -167,4 +173,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
