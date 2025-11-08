@@ -82,7 +82,7 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-#define XF86XK_AudioRaiseVolume	0x1008FF13
+/*define XF86XK_AudioRaiseVolume	0x1008FF13 */
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -126,10 +126,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_period,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_comma, focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_period,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_comma, tagmon,         {.i = +1 } },
 	{ MODKEY,			XK_Super_L, spawn,	  SHCMD("ulauncher") },
 	{ MODKEY|ShiftMask, 		XK_p, 	   spawn, 	  SHCMD("flameshot gui") },
         { MODKEY|ShiftMask,             XK_m,      spawn,         SHCMD("killall Discord") },
@@ -140,11 +140,17 @@ static Key keys[] = {
         {MODKEY|ShiftMask|ControlMask,  XK_Return, spawn,         SHCMD("cool-retro-term -p ~/.config/cool-retro-term/custom.json") },
         {Mod4Mask,                      XK_e,      spawn,         SHCMD("nemo") },
         {Mod4Mask,                      XK_period, spawn,         SHCMD("gnome-characters") },
+        /* {0, XF86XK_AudioMute,                      spawn,         SHCMD("amixer set Master mute") },*/
 	{0, XF86XK_AudioRaiseVolume,          	   spawn,         SHCMD("amixer set Master 5%+") },
-        {0, XF86XK_AudioMute,          		   spawn,         SHCMD("amixer set Master mute") },
+        {0, XF86XK_AudioMute,                      spawn,         SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
         {0, XF86XK_AudioLowerVolume,          	   spawn,         SHCMD("amixer set Master 5%-") },
+	{0, XF86XK_AudioPlay,                      spawn,         SHCMD("playerctl play-pause") },
+	{0, XF86XK_AudioNext,                      spawn,         SHCMD("playerctl next") },
+	{0, XF86XK_AudioPrev,                      spawn,         SHCMD("playerctl previous") },
+	{0, XF86XK_AudioStop,                      spawn,         SHCMD("playerctl stop") },
 	{0, XF86XK_Calculator,          	   spawn,         SHCMD("gnome-calculator") },
         {0, XF86XK_Explorer,                     spawn,         SHCMD("arandr") },
+        {Mod4Mask,                      XK_l,    spawn,         SHCMD("slock") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -173,3 +179,4 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+
