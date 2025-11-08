@@ -1,5 +1,5 @@
 sudo apt update
-sudo apt install make gcc libx11-dev libxft-dev libxinerama-dev xorg flameshot xfce4-appfinder tty-clock feh picom neofetch cmatrix
+sudo apt install slock pactl pavucontrol make gcc libx11-dev libxft-dev libxinerama-dev xorg flameshot xfce4-appfinder tty-clock feh picom neofetch cmatrix
 cd dwm
 sudo make clean install
 
